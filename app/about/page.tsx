@@ -1,6 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ContactSection } from "./contact-section"
-import { HeroSection } from "./hero-section"
+import { Button } from "@/components/ui/button"
+import { Mail, Linkedin, ArrowRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 const teamMembers = [
   {
@@ -78,7 +80,44 @@ const impactMetrics = [
 export default function About() {
   return (
     <div className="min-h-screen">
-      <HeroSection />
+      {/* Hero Section */}
+      <div className="relative h-[70vh] min-h-[600px] w-full">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/background_2.jpg-k37KKO8hSwxA6vVPgt7pcXAI0SyotZ.jpeg"
+          alt="CEMS Sustainable Fashion Team"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-sustainable-900/95 via-sustainable-900/80 to-sustainable-900/60" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Transforming Fashion Through Sustainability
+              </h1>
+              <div className="text-xl md:text-2xl text-white/90 space-y-4">
+                <div>A team of passionate CEMS students united by a vision to revolutionize the fashion industry.</div>
+                <div className="flex gap-4">
+                  <Button size="lg" className="bg-white text-sustainable-900 hover:bg-sustainable-50" asChild>
+                    <Link href="#mission">
+                      Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-sustainable-300 text-sustainable-300 hover:bg-sustainable-300 hover:text-sustainable-900"
+                    asChild
+                  >
+                    <Link href="#contact">Contact Us</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Impact Metrics */}
       <div className="bg-sustainable-50 py-12">
@@ -100,15 +139,15 @@ export default function About() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-sustainable-800 mb-4">Our Mission</h2>
             <div className="text-xl text-sustainable-600 space-y-4">
-              <p>
+              <div>
                 We are on a mission to transform the fashion industry through technology-driven sustainability
                 solutions. Our platform empowers consumers and brands to make conscious choices that benefit both people
                 and planet.
-              </p>
-              <p>
+              </div>
+              <div>
                 As CEMS students from diverse backgrounds, we bring together our unique perspectives and expertise to
                 create innovative solutions for sustainable fashion.
-              </p>
+              </div>
             </div>
           </div>
 
@@ -118,10 +157,10 @@ export default function About() {
                 <CardTitle className="text-sustainable-800">Innovation</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sustainable-700">
+                <div className="text-sustainable-700">
                   Leveraging blockchain technology and digital solutions to create transparency in fashion supply chains
                   and empower conscious consumer choices.
-                </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -130,10 +169,10 @@ export default function About() {
                 <CardTitle className="text-sustainable-800">Sustainability</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sustainable-700">
+                <div className="text-sustainable-700">
                   Promoting circular fashion principles and sustainable practices through our credit system and
                   educational initiatives.
-                </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -142,10 +181,10 @@ export default function About() {
                 <CardTitle className="text-sustainable-800">Community</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sustainable-700">
+                <div className="text-sustainable-700">
                   Building a global community of conscious consumers and sustainable brands committed to transforming
                   the fashion industry.
-                </p>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -161,27 +200,29 @@ export default function About() {
               <Card key={member.name} className="bg-white">
                 <CardHeader>
                   <CardTitle className="text-sustainable-800">{member.name}</CardTitle>
-                  <CardDescription className="text-sustainable-600">
-                    <span className="font-medium">{member.role}</span>
-                    <br />
-                    {member.university}
+                  <CardDescription>
+                    <div className="text-sustainable-600">
+                      <span className="font-medium">{member.role}</span>
+                      <br />
+                      {member.university}
+                    </div>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4 text-sustainable-700">
-                    <p>
+                    <div>
                       <strong>Country:</strong> {member.country}
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <strong>Expertise:</strong> {member.expertise}
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <strong>Background:</strong> {member.background}
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <strong>Current Focus:</strong> {member.focus}
-                    </p>
-                    <p className="italic">"{member.quote}"</p>
+                    </div>
+                    <div className="italic">"{member.quote}"</div>
                   </div>
                 </CardContent>
               </Card>
@@ -191,7 +232,44 @@ export default function About() {
       </div>
 
       {/* Contact Section */}
-      <ContactSection />
+      <div id="contact" className="bg-sustainable-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
+            <div className="text-xl mb-8 space-y-4">
+              <div>
+                We're always looking to collaborate with like-minded individuals and organizations who share our vision
+                for a sustainable fashion future.
+              </div>
+              <div>
+                Whether you're a brand interested in partnership, a student passionate about sustainable fashion, or
+                someone who wants to learn more about our initiative, we'd love to hear from you.
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                size="lg"
+                className="bg-white text-sustainable-900 hover:bg-sustainable-50 w-full sm:w-auto"
+                onClick={() => (window.location.href = "mailto:makefashionsustainable@gmail.com")}
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                makefashionsustainable@gmail.com
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10 w-full sm:w-auto"
+                asChild
+              >
+                <Link href="https://www.linkedin.com">
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  Connect on LinkedIn
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

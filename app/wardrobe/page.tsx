@@ -9,7 +9,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { WardrobeAnalysis } from "./wardrobe-analysis"
 
 // Expanded mock data
 const purchaseHistory = [
@@ -26,7 +25,6 @@ const purchaseHistory = [
     material: "100% Organic Cotton",
     carbonFootprint: "2.5 kg CO2e",
     waterSaved: "2,700 liters",
-    price: 29.99,
   },
   {
     id: 2,
@@ -41,7 +39,6 @@ const purchaseHistory = [
     material: "80% Recycled Denim, 20% Organic Cotton",
     carbonFootprint: "4 kg CO2e",
     waterSaved: "3,800 liters",
-    price: 89.99,
   },
   {
     id: 3,
@@ -56,9 +53,77 @@ const purchaseHistory = [
     material: "100% Organic Cotton",
     carbonFootprint: "3.2 kg CO2e",
     waterSaved: "4,200 liters",
-    price: 79.99,
   },
-  // ... (其他商品保持不变)
+  {
+    id: 4,
+    item: "Sustainable Sneakers",
+    date: "2023-05-20",
+    credits: 80,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sustainable%20Sneakers.jpg-ladExnKp78oVL3ojAotwQ3yJxRzPdM.jpeg",
+    brand: "EcoStep",
+    location: "CleanKicks, Berlin",
+    quote: "There is no beauty in the finest cloth if it makes hunger and unhappiness. - Mahatma Gandhi",
+    material: "Recycled PET and Natural Rubber",
+    carbonFootprint: "5.5 kg CO2e",
+    waterSaved: "1,500 liters",
+  },
+  {
+    id: 5,
+    item: "Hemp Backpack",
+    date: "2023-06-15",
+    credits: 60,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hemp%20Backpack.jpg-GBb6ijEiskC59WPz7qyOXtWrfgmxFe.jpeg",
+    brand: "EarthCarry",
+    location: "GreenGoods, Amsterdam",
+    quote: "Sustainability is no longer about doing less harm. It's about doing more good. - Jochen Zeitz",
+    material: "100% Hemp Fabric",
+    carbonFootprint: "1.8 kg CO2e",
+    waterSaved: "2,300 liters",
+  },
+  {
+    id: 6,
+    item: "Bamboo Sunglasses",
+    date: "2023-07-01",
+    credits: 45,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Bamboo%20Sunglasses.jpg-VENzViTbKPt5Ux86lbaYq1cC17YC1y.jpeg",
+    brand: "EcoVision",
+    location: "SustainableShop, Barcelona",
+    quote: "The future of fashion is circular. - Ellen MacArthur",
+    material: "Bamboo Frame, Recycled Plastic Lenses",
+    carbonFootprint: "0.5 kg CO2e",
+    waterSaved: "500 liters",
+  },
+  {
+    id: 7,
+    item: "Recycled Wool Sweater",
+    date: "2023-07-15",
+    credits: 90,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Recycled%20Wool%20Sweater.jpg-2471iHb9LbVTGFUCGjXwzhh1r4CsuH.jpeg",
+    brand: "WoolWise",
+    location: "EcoWardrobe, Copenhagen",
+    quote: "Waste is a design flaw. - Kate Krebs",
+    material: "70% Recycled Wool, 30% Organic Cotton",
+    carbonFootprint: "3.8 kg CO2e",
+    waterSaved: "3,000 liters",
+  },
+  {
+    id: 8,
+    item: "Organic Linen Shirt",
+    date: "2023-08-01",
+    credits: 70,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Organic%20Linen%20Shirt.jpg-xNHAfTbe4iUGQel79QfZJkZmy34Tac.jpeg",
+    brand: "PureFiber",
+    location: "NaturalStyle, Stockholm",
+    quote: "The best way to predict the future is to create it. - Peter Drucker",
+    material: "100% Organic Linen",
+    carbonFootprint: "2.1 kg CO2e",
+    waterSaved: "2,800 liters",
+  },
 ]
 
 const creditHistory = [
@@ -91,7 +156,6 @@ export default function Wardrobe() {
           <TabsTrigger value="gallery">Gallery</TabsTrigger>
           <TabsTrigger value="list">List</TabsTrigger>
           <TabsTrigger value="calendar">Calendar</TabsTrigger>
-          <TabsTrigger value="analysis">Analysis</TabsTrigger>
         </TabsList>
         <TabsContent value="gallery" className="space-y-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -192,9 +256,6 @@ export default function Wardrobe() {
               </div>
             </CardContent>
           </Card>
-        </TabsContent>
-        <TabsContent value="analysis">
-          <WardrobeAnalysis purchases={purchaseHistory} />
         </TabsContent>
       </Tabs>
     </div>
