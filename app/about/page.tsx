@@ -8,7 +8,7 @@ import Link from "next/link"
 
 const teamMembers = [
   {
-    name: "Mari Johnson",
+    name: "Cintia Hu",
     role: "Project Lead & Sustainability Strategist",
     country: "Chile",
     university: "Universidad Adolfo Ibáñez",
@@ -20,7 +20,7 @@ const teamMembers = [
       "Developing strategies for sustainable fashion adoption and leading our initiative towards measurable impact.",
   },
   {
-    name: "Charles Dubois",
+    name: "Charles Chen",
     role: "Technology Lead & Innovation Director",
     country: "China",
     university: "Tsinghua University",
@@ -263,7 +263,7 @@ export default function About() {
                 className="border-white text-white hover:bg-white/10 w-full sm:w-auto"
                 asChild
               >
-                <Link href="https://www.linkedin.com">
+                <Link href="https://www.linkedin.com/in/xinqi-hu-290756261">
                   <Linkedin className="mr-2 h-5 w-5" />
                   Connect on LinkedIn
                 </Link>
